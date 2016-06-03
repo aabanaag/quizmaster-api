@@ -70,7 +70,14 @@ RSpec.describe QuestionsController, type: :controller do
   end
 
   describe 'GET #index' do
+    it 'gets lists of questions' do
+      get :index
 
+      res = JSON.parse(response.body)
+      expect :success
+      expect(res).not_to be_nil
+      expect(Question.count).to be >= 1
+    end
   end
 
   describe 'DELETE #destroy' do

@@ -21,6 +21,10 @@ class QuestionsController < ApplicationController
     render json: { message: 'Question not found' }, status: :not_found
   end
 
+  def index
+    render json: Question.all, status: :success
+  end
+
   private
 
   def question_params
