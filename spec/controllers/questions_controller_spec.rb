@@ -63,25 +63,23 @@ RSpec.describe QuestionsController, type: :controller do
   end
 
   describe 'GET #index' do
-    context 'gets list of questions' do
-      it 'returns list of questions' do
-        get :index
+    it 'returns list of questions' do
+      get :index
 
-        res = JSON.parse(response.body)
-        expect :success
-        expect(res).not_to be_nil
-        expect(Question.count).to be >= 1
-      end
+      res = JSON.parse(response.body)
+      expect :success
+      expect(res).not_to be_nil
+      expect(Question.count).to be >= 1
     end
+  end
 
-    context 'gets one question' do
-      it 'returns one question' do
-        get :show, id: 1
+  describe 'GET #show' do
+    it 'returns one question' do
+      get :show, id: 1
 
-        res = JSON.parse(response.body)
-        expect :success
-        expect(res).not_to be_nil
-      end
+      res = JSON.parse(response.body)
+      expect :success
+      expect(res).not_to be_nil
     end
   end
 
