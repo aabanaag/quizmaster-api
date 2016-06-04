@@ -3,10 +3,10 @@ require 'rails_helper'
 RSpec.describe QuestionsController, type: :controller do
   describe 'POST #create' do
     before :each do
-        @question = Question.new({
-          question: 'What is 5 * 5',
-          answer: '25'
-          })
+      @question = Question.new({
+        question: 'What is 5 * 5',
+        answer: '25'
+      })
     end
 
     context 'with valid attributes' do
@@ -31,10 +31,10 @@ RSpec.describe QuestionsController, type: :controller do
 
   describe 'PUT #update' do
     before :each do
-        @question = Question.new({
-          question: 'What is the color of the Sun',
-          answer: 'yellow'
-          })
+      @question = Question.new({
+        question: 'What is the color of the Sun',
+        answer: 'yellow'
+      })
     end
 
     context 'with valid params' do

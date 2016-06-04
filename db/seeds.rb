@@ -6,5 +6,11 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 Question.create([
-  {question: 'What is 5 * 5', answer: '25'}
+  {question: 'Which American state is nearest to the former Soviet Union', answer: 'Alaska'},
+  {question: 'Which reggae singing star died 11th May 1981', answer: 'Bob Marley'},
+  {question: 'What is converted into alcohol during brewing', answer: 'Sugar'},
+  {question: 'Which guitarist is known as Slowhand', answer: 'Eric Clapton'},
+  {question: 'Which actor appeared in Papillion and The Great Escape and died in 1980', answer: 'Steve McQueen'},
+  {question: 'In which bay is Alcatraz', answer: 'San Francisco Bay'},
+  {question: 'In Roman mythology, Neptune is the equivalent to which Greek god', answer: 'Poseidon'},
   ])
