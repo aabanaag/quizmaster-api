@@ -22,6 +22,16 @@ class QuestionsController < ApplicationController
     render json: Question.all, status: :success
   end
 
+  def show
+    id = params[:id]
+    question = Question.find(id)
+    if question.valid?
+      render json: question, status: :ok
+    else
+      render json: question.errors.full_messages, status: :not_found
+    end
+  end
+
   def destroy
     id = params[:id]
     if Question.delete(id)
