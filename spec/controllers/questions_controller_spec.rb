@@ -74,6 +74,13 @@ RSpec.describe QuestionsController, type: :controller do
   end
 
   describe 'DELETE #destroy' do
+    context 'with valid params' do
+      it 'deletes the question' do
+        delete :destroy, id: 1
 
+        expect :no_content
+        expect { Question.find(1) }.to raise_error(ActiveRecord::RecordNotFound)
+      end
+    end
   end
 end

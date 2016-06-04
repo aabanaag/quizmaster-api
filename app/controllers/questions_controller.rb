@@ -22,6 +22,15 @@ class QuestionsController < ApplicationController
     render json: Question.all, status: :success
   end
 
+  def destroy
+    id = params[:id]
+    if Question.delete(id)
+      render json: nil, status: :no_content
+    else
+      render json: question.errors.full_messages, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def question_params
