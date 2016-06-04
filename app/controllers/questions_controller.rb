@@ -11,14 +11,11 @@ class QuestionsController < ApplicationController
   def update
     id = params[:id]
     question = Question.find(id)
-    if question.update_attributes(question_params)
-      render json: question, status: :updated
+    if question.update(question_params)
+      render json: nil, status: :no_content
     else
-      render json: question.errors.full_message, status: :unprocessable_entity
+      render json: question.errors.full_messages, status: :unprocessable_entity
     end
-  rescue => e
-    logger.info e
-    render json: { message: 'Question not found' }, status: :not_found
   end
 
   def index

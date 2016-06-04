@@ -41,30 +41,23 @@ RSpec.describe QuestionsController, type: :controller do
       it 'updates the question' do
         put :update, id: 1, question: @question.attributes
 
-        res = JSON.parse(response.body)
-        expect :success
-        expect(res['question']).to eq(@question.question)
-        expect(res['answer']).to eq(@question.answer)
+        model = Question.find(1).as_json
+        expect :no_content
+        expect(model['question']).to eq(@question.question)
+        expect(model['answer']).to eq(@question.answer)
       end
     end
 
     context 'with invalid params' do
-      it 'does not find the question' do
-        put :update, id: '', question: @question.attributes
-
-        res = JSON.parse(response.body)
-        expect :not_found
-        expect(res['message']).to eq('Question not found')
-      end
-
       it 'does not update the question' do
         @question.question = ''
         @question.answer = ''
         put :update, id: 1, question: @question.attributes
 
+        res = JSON.parse(response.body)
         expect :unprocessable_entity
-        expect(Question.find(1).question).not_to eq('')
-        expect(Question.find(1).answer).not_to eq('')
+        expect(res).to include('Question can\'t be blank',
+        'Answer can\'t be blank')
       end
     end
   end
