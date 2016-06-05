@@ -14,7 +14,7 @@ RSpec.describe QuestionsController, type: :controller do
         post :create, question: @question.attributes
 
         expect :created
-        expect(Question.count).to eq(1)
+        expect(Question.count).to eq(8)
       end
     end
 
