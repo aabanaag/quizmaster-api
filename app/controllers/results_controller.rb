@@ -10,7 +10,10 @@ class ResultsController < ApplicationController
         results += 1
       end
     end
-    render json: { results: results }, status: :ok
+    render json: { results: {
+      correct: results,
+      totalItems: questions_params.count
+      } }, status: :ok
   rescue => e
     render json: { error: e.message }, status: :unprocessable_entity
   end

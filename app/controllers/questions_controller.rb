@@ -22,6 +22,10 @@ class QuestionsController < ApplicationController
     render json: Question.all, status: :ok
   end
 
+  def quiz
+    render json: Question.select(:id, :question).shuffle(), status: :ok
+  end
+
   def show
     id = params[:id]
     question = Question.find(id)
