@@ -78,7 +78,7 @@ RSpec.describe QuestionsController, type: :controller do
       get :show, id: 1
 
       res = JSON.parse(response.body)
-      expect :success
+      expect :ok
       expect(res).not_to be_nil
     end
   end
