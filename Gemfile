@@ -25,6 +25,8 @@ gem 'haml-rails'
 
 gem 'rack-cors', :require => 'rack/cors'
 
+gem 'numbers_and_words'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
